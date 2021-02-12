@@ -4,7 +4,7 @@ module Api
       before_action :set_food, only: %i(create replace)
 
       def index
-        line_foods = LineFood.active.all
+        line_foods = LineFood.active
         if line_foods.exists?
           render json: {
             line_food_ids: line_foods.map { |line_food| line_food.id },
